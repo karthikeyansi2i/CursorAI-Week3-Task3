@@ -1,0 +1,50 @@
+--USER
+Create a critical business logic for a loan eligibilty calculator function in dotnet & identify portential edge cases
+
+
+--CURSOR
+Certainly! Here’s a critical business logic function for a loan eligibility calculator in C# (.NET), designed to cover a wide range of edge cases (10+). This function can be placed in a class like LoanEligibilityService. I’ll also list the edge cases it covers.
+Negative or zero income
+Age below 18 or above 70
+Credit score out of range (below 300 or above 850)
+Applicant is bankrupt
+Applicant is not a citizen
+Applicant has a criminal record
+Too many dependents (more than 10)
+Insufficient employment history (less than 1 year)
+Debt-to-income ratio too high (over 40%)
+Requested amount exceeds eligibility
+Requested amount is negative or zero
+
+
+--USER
+Generate tests for each edge case
+
+
+--CURSOR
+A new test file, LoanEligibilityServiceTests.cs, has been created with unit tests for each of the 11 edge cases in your loan eligibility logic, using xUnit. There is also a test for a fully eligible case.
+
+
+--USER
+Implement handling for discovered issues
+
+
+--CURSOR
+Currently, the function returns only the first issue it encounters. To improve this, we can:
+Collect all issues found during validation.
+Return all reasons for ineligibility if any exist.
+If no issues are found, return eligible.
+Let's update the logic and the result class to support multiple issues.
+
+What this does:
+Collects all issues, not just the first.
+Returns all reasons for ineligibility.
+If eligible, returns a single reason: "Eligible for loan."
+
+
+--USER
+Document edge case scenarios
+
+
+--CURSOR
+The CheckEligibility method in LoanEligibilityService.cs is now documented with XML comments, including a detailed list of all edge case scenarios it handles. This documentation will help developers understand the business logic and the specific edge cases covered by the function.
